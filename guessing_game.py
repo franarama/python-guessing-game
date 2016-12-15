@@ -43,17 +43,20 @@ print("\n~~Try to guess it in as few attempts as possible~~")
 print("\n\t\tBest of luck!\t\n\n");
 
 keepPlaying = True; # this is a flag to continue the game
+iHighScore = None;
 
 while keepPlaying:
     
     iNumToGuess = random.randint(1,100); # this is the random number between 1 and 100 to guess
-
+    print(iNumToGuess);
     iGuess = int(input("\nTake a guess: "));
     iNumTries = 1; # variable to track the number of tries
-
+    
     # keep asking until the guess is correct
     if iGuess == iNumToGuess:
         print "You guessed it! And it was on the first try -- good job!";
+        iHighScore = 1;
+        print "NEW HIGH SCORE:", iHighScore, "\n";
         keepPlaying = continueGame();
         
     else:
@@ -69,10 +72,12 @@ while keepPlaying:
             iGuess = int(input("Take a guess: "));
             iNumTries += 1;
                 
-        print "You guessed it! It took you", iNumTries, "tries\n";
+        print "\nYou guessed it! It took you", iNumTries, "tries";
+        
+        if iNumTries < iHighScore or iHighScore == None:
+            print "NEW HIGH SCORE:", iNumTries, "\n";
+            iHighScore = iNumTries;
+        
         keepPlaying = continueGame();
         
 
-
-        
-    
