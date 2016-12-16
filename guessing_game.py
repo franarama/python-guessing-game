@@ -48,7 +48,7 @@ iHighScore = None;
 while keepPlaying:
     
     iNumToGuess = random.randint(1,100); # this is the random number between 1 and 100 to guess
-    print(iNumToGuess);
+
     iGuess = int(input("\nTake a guess: "));
     iNumTries = 1; # variable to track the number of tries
     
